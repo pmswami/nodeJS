@@ -19,6 +19,7 @@
 //     console.log("in the setinterval")
 // }, 1000)
 
-console.log(__dirname) // without filename path 
-console.log(__filename) // with filename path
+// console.log(__dirname) // without filename path 
+// console.log(__filename) // with filename path
 
+// ____________ Modules and require ____________________
