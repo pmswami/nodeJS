@@ -1,0 +1,11 @@
+NodeJS can -
+    read & write files on computer
+    connect to a database
+    act as a server for content
+
+Why NodeJS
+    No need to learn an extra language for server
+    can share code between front and back end
+    NodeJS has a massive community behind it
+    huge amount of third-party packages and tools to help
+
