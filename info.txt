@@ -9,3 +9,10 @@ Why NodeJS
     NodeJS has a massive community behind it
     huge amount of third-party packages and tools to help
 
+IP addresses
+    addresses for each computer on internet
+    Whenever a request is made, a lookup is made for particular domain name and it returns hostIP of that domain
+    HTTP => HyperText Transfer Protocol
+
+Localhost(127.0.0.1) is like a domain name on 
+Port number is like doors into a computer.
