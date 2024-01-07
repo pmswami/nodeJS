@@ -25,8 +25,10 @@ app.listen(3000)
 //     next()
 // })
 
-app.use(morgan("dev"))
+//middleware & Static files
+app.use(express.static("public"))
 
+app.use(morgan("dev"))
 
 app.get("/", (req, res)=>{
     // console.log("express app")
