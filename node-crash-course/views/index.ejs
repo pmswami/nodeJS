@@ -1,15 +1,18 @@
 <html lang="en">
-    <head>
+    <!-- <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Blog Ninja | <%= title %></title>
-    </head>
+    </head> -->
+    <%- include("./partials/head.ejs")%>
+    <!-- "=" sign => This sign is used when a variable is need to accessed. It will convert the variable into raw string
+    "-" sign => This sign is used when EJS/HTML content is need to rendered. It will preserve all the tags/values. -->
     <body>
-        <% const name="Mario" %>
-        <nav>
+        <!-- <% const name="Mario" %> -->
+        <!-- <nav>
             <div class="Site-title">
-                <p><%= name %></p>
-                <a href="/"><h1>Blog Ninja</h1></a>
+                <!-- <p><%= name %></p> -->
+                <!-- <a href="/"><h1>Blog Ninja</h1></a>
                 <p>A Net Ninja Site</p>
             </div>
             <ul>
@@ -17,7 +20,8 @@
                 <li><a href="/about">About</a></li>
                 <li><a href="/blogs/create">New Blog</a></li>
             </ul>
-        </nav>
+        </nav> --> 
+        <%- include("./partials/nav.ejs")%>
         <div class="blogs content">
             <h2>All Blogs</h2>
             <% if(blogs.length>0) { %>
@@ -29,5 +33,6 @@
                 <p>There are no blogs to display...</p>
             <% } %>
         </div>
+        <%- include("./partials/footer.ejs")%>
     </body>
 </html>

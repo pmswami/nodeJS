@@ -1,11 +1,12 @@
 <html lang="en">
-    <head>
+    <!-- <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Blog Ninja | <%= title %></title>
-    </head>
+    </head> -->
+    <%- include("./partials/head.ejs")%>
     <body>
-        <nav>
+        <!-- <nav>
             <div class="Site-title">
                 <a href="/"><h1>Blog Ninja</h1></a>
                 <p>A Net Ninja Site</p>
@@ -15,12 +16,14 @@
                 <li><a href="/about">About</a></li>
                 <li><a href="/blogs/create">New Blog</a></li>
             </ul>
-        </nav>
+        </nav> -->
+        <%- include("./partials/nav.ejs")%>
         <div class="blogs content">
             <h2>About Us</h2>
             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum vitae molestie massa. Morbi vitae tincidunt lacus. Sed sit amet sapien aliquet, rhoncus nibh eu, scelerisque ligula. Pellentesque pretium nisl ac nisi volutpat, eu condimentum dui iaculis. Etiam et tellus urna. Duis ullamcorper tincidunt turpis a ullamcorper. Maecenas eu risus eu purus aliquet commodo ut pharetra lorem. </p>
             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum vitae molestie massa. Morbi vitae tincidunt lacus. Sed sit amet sapien aliquet, rhoncus nibh eu, scelerisque ligula. Pellentesque pretium nisl ac nisi volutpat, eu condimentum dui iaculis. Etiam et tellus urna. Duis ullamcorper tincidunt turpis a ullamcorper. Maecenas eu risus eu purus aliquet commodo ut pharetra lorem. </p>
             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum vitae molestie massa. Morbi vitae tincidunt lacus. Sed sit amet sapien aliquet, rhoncus nibh eu, scelerisque ligula. Pellentesque pretium nisl ac nisi volutpat, eu condimentum dui iaculis. Etiam et tellus urna. Duis ullamcorper tincidunt turpis a ullamcorper. Maecenas eu risus eu purus aliquet commodo ut pharetra lorem. </p>
           </div>
+          <%- include("./partials/footer.ejs")%>
     </body>
 </html>
