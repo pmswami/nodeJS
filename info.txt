@@ -30,3 +30,8 @@ Status code describe the type of the response sent to the browser
         400 Range => User or Client error codes
         500 Range => Server error codes
 
+EJS Templates
+    EJS Templates are processed through the EJS view engine on the server.
+    EJS => Embedded JavaScript
+    EJS sits along with the other packages in the server which convert the EJS snipptes into a valid HTML code.
+    
