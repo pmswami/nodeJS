@@ -1,5 +1,6 @@
 const express = require("express")
 const { conforms } = require("lodash")
+const morgan = require("morgan")
 
 const app = express()
 
@@ -11,18 +12,21 @@ app.set("view engine", "ejs")
 app.listen(3000)
 
 //middleware
-app.use((req,res, next)=>{
-    console.log("New request has been made")
-    console.log(`Host: ${req.hostname}`)
-    console.log(`Host: ${req.path}`)
-    console.log(`Host: ${req.method}`)
-    next()
-})
+// app.use((req,res, next)=>{
+//     console.log("New request has been made")
+//     console.log(`Host: ${req.hostname}`)
+//     console.log(`Host: ${req.path}`)
+//     console.log(`Host: ${req.method}`)
+//     next()
+// })
 
-app.use((req,res, next)=>{
-    console.log("In the next middleware")
-    next()
-})
+// app.use((req,res, next)=>{
+//     console.log("In the next middleware")
+//     next()
+// })
+
+app.use(morgan("dev"))
+
 
 app.get("/", (req, res)=>{
     // console.log("express app")
