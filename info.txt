@@ -29,4 +29,4 @@ Status code describe the type of the response sent to the browser
         300 Range => Codes for redirects
         400 Range => User or Client error codes
         500 Range => Server error codes
-    
+
