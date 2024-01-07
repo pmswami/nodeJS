@@ -1,4 +1,5 @@
 const express = require("express")
+const { conforms } = require("lodash")
 
 const app = express()
 
@@ -6,9 +7,22 @@ const app = express()
 app.set("view engine", "ejs")
 // app.set("views", "myviews") //set custom directory for getting HTML templates. By default, its "views" directory
 
-
 //listen for requests
 app.listen(3000)
+
+//middleware
+app.use((req,res, next)=>{
+    console.log("New request has been made")
+    console.log(`Host: ${req.hostname}`)
+    console.log(`Host: ${req.path}`)
+    console.log(`Host: ${req.method}`)
+    next()
+})
+
+app.use((req,res, next)=>{
+    console.log("In the next middleware")
+    next()
+})
 
 app.get("/", (req, res)=>{
     // console.log("express app")

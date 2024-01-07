@@ -34,4 +34,11 @@ EJS Templates
     EJS Templates are processed through the EJS view engine on the server.
     EJS => Embedded JavaScript
     EJS sits along with the other packages in the server which convert the EJS snipptes into a valid HTML code.
-
+    
+Middleware
+    Code which runs(on the server) between getting a request and sendinga response
+    Middleware examples
+        Logger middleware to log details of every request
+        Authentication check middleware for protected routes
+        Middleware to parse JSON data from requests
+        Return 404 pages.
