@@ -46,20 +46,20 @@ app.use(morgan("dev"))
 
 // // Mongoose and mongo sandbox routes
 // // add new blog
-// app.get("/add-blog",(req, res)=>{
-//     const blog = new Blog({
-//         title: "New Blog 2",
-//         snippet: "ABout my new Blog",
-//         body: "More about my new blog"
-//     })
-//     blog.save()
-//     .then(results=>{
-//         res.send(results)
-//     })
-//     .catch(err => {
-//         console.log(err)
-//     })
-// })
+app.get("/add-blog",(req, res)=>{
+    const blog = new Blog({
+        title: "New Blog 2",
+        snippet: "ABout my new Blog",
+        body: "More about my new blog"
+    })
+    blog.save()
+    .then(results=>{
+        res.send(results)
+    })
+    .catch(err => {
+        console.log(err)
+    })
+})
 
 // //return all blogs
 // app.get("/all-blogs", (req, res)=>{
@@ -134,6 +134,19 @@ app.get("/blogs/:id", (req, res)=>{
         console.log(err)
     })
 })
+
+// router for deleting a blog
+app.delete("/blogs/:id", (req, res)=>{
+    const id = req.params.id
+    Blog.findByIdAndDelete(id)
+    .then(result=>{
+        res.json({redirect: "/blogs"})
+    })
+    .catch(err=>{
+        console.log(err)
+    })
+})
+
 app.get("/about", (req, res)=>{
     // res.send("<p>About</p>")
     // res.sendFile("./views/about.html",{root:__dirname})
@@ -146,7 +159,8 @@ app.get("/about", (req, res)=>{
 // })
 
 app.get("/blogs/create", (req, res)=>{
-    res.render("create",{title: "Create New Blog"})
+    console.log("create router")
+    // res.render("create", {title: "Create New Blog"})
 })
 
 //404 page
