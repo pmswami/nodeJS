@@ -63,3 +63,10 @@ Route Parameters
     for eg.,
         localhost:3000/:id
         localhost:3000/123
+
+MVC
+    MVC => Model View, Controller
+    MVC is a way of structuring our code & files
+    Keeps code more modular, reusable and easier to read.
+    Controller links our Models and Views.
+    
