@@ -41,7 +41,7 @@ app.set("view engine", "ejs")
 
 //middleware & Static files
 app.use(express.static("public"))
-
+app.use(express.urlencoded({extended: true})) //converts form data into JS objects
 app.use(morgan("dev"))
 
 // // Mongoose and mongo sandbox routes
@@ -103,6 +103,20 @@ app.get("/blogs", (req, res)=>{
         res.render("index", {title: "ALl Blogs", blogs: results})
     })
     .catch(err=>{
+        console.log(err)
+    })
+})
+
+app.post("/blogs", (req, res)=>{
+    // console.log(req.body)
+    const blog = new Blog(req.body)
+    blog.save()
+    .then(results=>{
+        // console.log(results)
+        res.redirect("/")
+        // res.send(results)
+    })
+    .catch(err => {
         console.log(err)
     })
 })

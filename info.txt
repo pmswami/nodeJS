@@ -51,4 +51,9 @@ Mongoose
     Mongoose is an ODM library -Object Document Mapping library.
     Schemas defines the structure of a type of data/documents, properties and property types.
     Models allows us to communicate with database collections.
-    
+
+Request types
+    GET => Request data to get resource.
+    POST => Request to create new data(eg., new blogs)
+    DELETE => Request to delete data(eg., delete a blog)
+    PUT => Request to update a data(eg., update a blog)
