@@ -2,6 +2,7 @@ const express = require("express")
 const { conforms } = require("lodash")
 const morgan = require("morgan")
 const mongoose = require("mongoose")
+const Blog = require("./models/blogs")
 
 const app = express()
 
@@ -42,6 +43,46 @@ app.set("view engine", "ejs")
 app.use(express.static("public"))
 
 app.use(morgan("dev"))
+
+// Mongoose and mongo sandbox routes
+// add new blog
+app.get("/add-blog",(req, res)=>{
+    const blog = new Blog({
+        title: "New Blog 2",
+        snippet: "ABout my new Blog",
+        body: "More about my new blog"
+    })
+    blog.save()
+    .then(results=>{
+        res.send(results)
+    })
+    .catch(err => {
+        console.log(err)
+    })
+})
+
+//return all blogs
+app.get("/all-blogs", (req, res)=>{
+    Blog.find()
+    .then(results=>{
+        res.send(results)
+    })
+    .catch(err=>{
+        console.log(err)
+    })
+})
+
+//return single-blog
+app.get("/single-blog", (req, res)=>{
+    Blog.findById("659b8f3dde6df301ef67d5be")
+    .then(results=>{
+        res.send(results)
+    })
+    .catch(err=>{
+        console.log(err)
+    })
+})
+
 
 app.get("/", (req, res)=>{
     // console.log("express app")
