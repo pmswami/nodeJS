@@ -100,13 +100,14 @@ app.get("/", (req, res)=>{
 app.get("/blogs", (req, res)=>{
     Blog.find().sort({ createdAt:-1})
     .then(results=>{
-        res.render("index", {title: "ALl Blogs", blogs: results})
+        res.render("index", {title: "All Blogs", blogs: results})
     })
     .catch(err=>{
         console.log(err)
     })
 })
 
+//requste for new blog creation
 app.post("/blogs", (req, res)=>{
     // console.log(req.body)
     const blog = new Blog(req.body)
@@ -121,6 +122,18 @@ app.post("/blogs", (req, res)=>{
     })
 })
 
+//router for single document
+app.get("/blogs/:id", (req, res)=>{
+    const id = req.params.id
+    // console.log(id)
+    Blog.findById(id)
+    .then(result=>{
+        res.render("details", {title: "Blog Details", blog: result})
+    })
+    .catch(err=>{
+        console.log(err)
+    })
+})
 app.get("/about", (req, res)=>{
     // res.send("<p>About</p>")
     // res.sendFile("./views/about.html",{root:__dirname})

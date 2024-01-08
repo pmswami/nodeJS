@@ -57,3 +57,9 @@ Request types
     POST => Request to create new data(eg., new blogs)
     DELETE => Request to delete data(eg., delete a blog)
     PUT => Request to update a data(eg., update a blog)
+
+Route Parameters
+    The variable parts of the route that may change value
+    for eg.,
+        localhost:3000/:id
+        localhost:3000/123
