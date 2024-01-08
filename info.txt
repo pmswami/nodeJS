@@ -42,3 +42,13 @@ Middleware
         Authentication check middleware for protected routes
         Middleware to parse JSON data from requests
         Return 404 pages.
+MongoDB
+    data is stored in documents inside a collection.
+    Document is like a record of data
+    Documents are similar to JSON
+
+Mongoose
+    Mongoose is an ODM library -Object Document Mapping library.
+    Schemas defines the structure of a type of data/documents, properties and property types.
+    Models allows us to communicate with database collections.
+    

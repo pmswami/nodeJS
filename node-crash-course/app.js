@@ -1,15 +1,28 @@
 const express = require("express")
 const { conforms } = require("lodash")
 const morgan = require("morgan")
+const mongoose = require("mongoose")
 
 const app = express()
 
+//connect to mongodb
+const pwd = "Test1234" 
+const dbURI = `mongodb+srv://netninja:${pwd}@swamfire.ltna8bc.mongodb.net/nodetuts?retryWrites=true&w=majority`
+mongoose.connect(dbURI, {useNewUrlParser: true, useUnifiedTopology: true})
+.then((result)=>{
+    console.log("Connected to DB")
+    //listen for requests
+    app.listen(3000)
+})
+.catch(err=>{
+    console.log(err)
+})
 //register view engine
 app.set("view engine", "ejs")
 // app.set("views", "myviews") //set custom directory for getting HTML templates. By default, its "views" directory
 
-//listen for requests
-app.listen(3000)
+// //listen for requests
+// app.listen(3000)
 
 //middleware
 // app.use((req,res, next)=>{
