@@ -2,7 +2,8 @@ const express = require("express")
 const { conforms } = require("lodash")
 const morgan = require("morgan")
 const mongoose = require("mongoose")
-const Blog = require("./models/blogs")
+// const Blog = require("./models/blogs")
+const router = require("./routes/blogRoutes")
 
 const app = express()
 
@@ -97,53 +98,59 @@ app.get("/", (req, res)=>{
     res.redirect("/blogs")
 })
 
-app.get("/blogs", (req, res)=>{
-    Blog.find().sort({ createdAt:-1})
-    .then(results=>{
-        res.render("index", {title: "All Blogs", blogs: results})
-    })
-    .catch(err=>{
-        console.log(err)
-    })
-})
+// app.get("/blogs", (req, res)=>{
+//     Blog.find().sort({ createdAt:-1})
+//     .then(results=>{
+//         res.render("index", {title: "All Blogs", blogs: results})
+//     })
+//     .catch(err=>{
+//         console.log(err)
+//     })
+// })
 
-//requste for new blog creation
-app.post("/blogs", (req, res)=>{
-    // console.log(req.body)
-    const blog = new Blog(req.body)
-    blog.save()
-    .then(results=>{
-        // console.log(results)
-        res.redirect("/")
-        // res.send(results)
-    })
-    .catch(err => {
-        console.log(err)
-    })
-})
+// //requste for new blog creation
+// app.post("/blogs", (req, res)=>{
+//     // console.log(req.body)
+//     const blog = new Blog(req.body)
+//     blog.save()
+//     .then(results=>{
+//         // console.log(results)
+//         res.redirect("/")
+//         // res.send(results)
+//     })
+//     .catch(err => {
+//         console.log(err)
+//     })
+// })
 
-//router for single document
-app.get("/blogs/:id", (req, res)=>{
-    const id = req.params.id
-    // console.log(id)
-    Blog.findById(id)
-    .then(result=>{
-        res.render("details", {title: "Blog Details", blog: result})
-    })
-    .catch(err=>{
-        console.log(err)
-    })
-})
+// app.get("/blogs/create", (req, res)=>{
+//     console.log("create router")
+//     res.render("create", {title: "Create New Blog"})
+// })
 
-// router for deleting a blog
-app.delete("/blogs/:id", (req, res)=>{
-    const id = req.params.id
-    Blog.findByIdAndDelete(id)
-    .then(result=>res.json({redirect: "/blogs"}))
-    .catch(err=>{
-        console.log(err)
-    })
-})
+// //router for single document
+// app.get("/blogs/:id", (req, res)=>{
+//     const id = req.params.id
+//     // console.log(id)
+//     Blog.findById(id)
+//     .then(result=>{
+//         res.render("details", {title: "Blog Details", blog: result})
+//     })
+//     .catch(err=>{
+//         console.log(err)
+//     })
+// })
+
+// // router for deleting a blog
+// app.delete("/blogs/:id", (req, res)=>{
+//     const id = req.params.id
+//     Blog.findByIdAndDelete(id)
+//     .then(result=>res.json({redirect: "/blogs"}))
+//     .catch(err=>{
+//         console.log(err)
+//     })
+// })
+app.use("/blogs", router)
 
 app.get("/about", (req, res)=>{
     // res.send("<p>About</p>")
@@ -155,11 +162,6 @@ app.get("/about", (req, res)=>{
 // app.get("/about-us", (req, res)=>{
 //     res.redirect("/about")
 // })
-
-app.get("/create", (req, res)=>{
-    console.log("create router")
-    res.render("create", {title: "Create New Blog"})
-})
 
 //404 page
 app.use((req, res)=>{
